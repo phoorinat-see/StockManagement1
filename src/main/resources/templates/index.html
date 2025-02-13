@@ -33,10 +33,13 @@
       overflow: hidden;
       border-collapse:separate ;
       border-radius: 5px;
+      border-spacing: 0!important;
     }
     th, td {
-      border: 1px solid #155724;
-      padding: 10px;
+      border: 0!important;
+      border-bottom: 1px solid #155724 !important;
+      padding: 10px 5px !important;
+      margin: 0 !important;
       text-align: center;
     }
     th {
@@ -95,6 +98,7 @@
         <a th:href="@{/showFormForUpdate/{id}(id=${product.id})}" class="btn btn-gold btn-sm">แก้ไข</a>
         <a th:href="@{/deleteProduct/{id}(id=${product.id})}" class="btn btn-danger btn-sm" onclick="return confirm('คุณแน่ใจหรือไม่ที่ต้องการลบสินค้านี้?');">ลบ</a>
       </td>
+
     </tr>
     </tbody>
   </table>
