@@ -3,15 +3,36 @@
 <head>
   <title>สต๊อคสินค้าร้านกลุ่มสองคำนองคึก</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
   <style>
+    *{
+      font-family: "Kanit", serif;
+    }
     body {
       background-color: #f8f9fa;
     }
     h1 {
       color: #155724;
+      padding-bottom: 3rem;
+      padding-top: 1rem;
     }
+    .search-and-add{
+      display: flex;
+      justify-content: space-between;
+    }
+
     table {
       border: 2px solid #155724;
+
+    }
+    .table{
+      overflow: hidden;
+      border-collapse:separate ;
+      border-radius: 5px;
     }
     th, td {
       border: 1px solid #155724;
@@ -30,18 +51,26 @@
       background-color: #ffc107;
       color: white;
     }
+    .search{
+      background-color: #0762ff;
+    }
   </style>
 </head>
 <body>
 <div class="container mt-4">
   <h1 class="text-center">สต๊อคสินค้าร้านกลุ่มสองคำนองคึก</h1>
-  <div class="text-right mb-3">
-    <a th:href="@{/showNewProductForm}" class="btn btn-green">เพิ่มสินค้าใหม่</a>
-  </div>
-  <form th:action="@{/search}" method="get" class="form-inline mb-3">
-    <input type="text" class="form-control mr-2" name="keyword" placeholder="ค้นหาสินค้า...">
-    <button type="submit" class="btn btn-gold">ค้นหา</button>
-  </form>
+
+  <section class="search-and-add">
+
+    <form th:action="@{/search}" method="get" class="form-inline mb-3">
+      <input type="text" class="form-control mr-2" name="keyword" placeholder="ค้นหาสินค้า...">
+      <button type="submit" class="btn btn-gold search">ค้นหา</button>
+    </form>
+    <div class="text-right mb-3">
+      <a th:href="@{/showNewProductForm}" class="btn btn-green">+เพิ่มสินค้าใหม่</a>
+    </div>
+  </section>
+
   <table class="table table-bordered">
     <thead>
     <tr>
