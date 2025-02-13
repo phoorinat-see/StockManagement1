@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>แก้ไขสินค้า</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #155724;
+    }
+    .btn-green {
+      background-color: #28a745;
+      color: white;
+    }
+    .btn-gold {
+      background-color: #ffc107;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<div class="container mt-5">
+  <h1 class="text-center">แก้ไขสินค้า</h1>
+  <form th:action="@{/updateProduct}" th:object="${product}" method="post">
+    <input type="hidden" th:field="*{id}">
+    <div class="form-group">
+      <label for="productName">ชื่อสินค้า</label>
+      <input type="text" class="form-control" id="productName" th:field="*{productName}" required>
+    </div>
+    <div class="form-group">
+      <label for="unit">หน่วยนับ</label>
+      <input type="text" class="form-control" id="unit" th:field="*{unit}" required>
+    </div>
+    <div class="form-group">
+      <label for="price">ราคา</label>
+      <input type="number" step="0.01" class="form-control" id="price" th:field="*{price}" required>
+    </div>
+    <div class="form-group">
+      <label for="availableQuantity">จำนวนพร้อมขาย</label>
+      <input type="number" class="form-control" id="availableQuantity" th:field="*{availableQuantity}" required>
+    </div>
+    <div class="form-group">
+      <label for="soldQuantity">จำนวนที่ขายไปแล้ว</label>
+      <input type="number" class="form-control" id="soldQuantity" th:field="*{soldQuantity}" required>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-green">อัปเดต</button>
+      <a th:href="@{/}" class="btn btn-gold">ยกเลิก</a>
+    </div>
+  </form>
+</div>
+</body>
+</html>

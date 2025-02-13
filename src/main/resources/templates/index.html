@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>สต๊อคสินค้าร้านกลุ่มสองคำนองคึก</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    h1 {
+      color: #155724;
+    }
+    table {
+      border: 2px solid #155724;
+    }
+    th, td {
+      border: 1px solid #155724;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    .btn-green {
+      background-color: #28a745;
+      color: white;
+    }
+    .btn-gold {
+      background-color: #ffc107;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<div class="container mt-4">
+  <h1 class="text-center">สต๊อคสินค้าร้านกลุ่มสองคำนองคึก</h1>
+  <div class="text-right mb-3">
+    <a th:href="@{/showNewProductForm}" class="btn btn-green">เพิ่มสินค้าใหม่</a>
+  </div>
+  <form th:action="@{/search}" method="get" class="form-inline mb-3">
+    <input type="text" class="form-control mr-2" name="keyword" placeholder="ค้นหาสินค้า...">
+    <button type="submit" class="btn btn-gold">ค้นหา</button>
+  </form>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>รหัสสินค้า</th>
+      <th>ชื่อสินค้า</th>
+      <th>หน่วยนับ</th>
+      <th>ราคา</th>
+      <th>จำนวนพร้อมขาย</th>
+      <th>จำนวนที่ขายไปแล้ว</th>
+      <th>การดำเนินการ</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+      <td th:text="${product.id}"></td>
+      <td th:text="${product.productName}"></td>
+      <td th:text="${product.unit}"></td>
+      <td th:text="${product.price}"></td>
+      <td th:text="${product.availableQuantity}"></td>
+      <td th:text="${product.soldQuantity}"></td>
+      <td>
+        <a th:href="@{/showFormForUpdate/{id}(id=${product.id})}" class="btn btn-gold btn-sm">แก้ไข</a>
+        <a th:href="@{/deleteProduct/{id}(id=${product.id})}" class="btn btn-danger btn-sm" onclick="return confirm('คุณแน่ใจหรือไม่ที่ต้องการลบสินค้านี้?');">ลบ</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
