@@ -99,13 +99,13 @@
       <td>
         <a th:href="@{/showFormForUpdate/{id}(id=${product.id})}" class="btn btn-gold btn-sm">แก้ไข</a>
         <a th:href="@{/deleteProduct/{id}(id=${product.id})}" class="btn btn-danger btn-sm" onclick="return confirm('คุณแน่ใจหรือไม่ที่ต้องการลบสินค้านี้?');">ลบ</a>
-      </td>
+      </td><!--
       <td>
         <form th:href="@{/sellProduct/{id}(id=${products.id})}" class="sale-form">
           <input type="number" class="sale-input">
           <input type="submit" value="ขาย">
         </form>
-      </td>
+      </td>-->
 
     </tr>
     </tbody>
