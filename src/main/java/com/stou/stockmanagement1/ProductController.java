@@ -19,6 +19,12 @@ public class ProductController {
         return "index";
     }
 
+    @GetMapping("/sellProduct/{id}")
+    public String sellProduct(@PathVariable(value = "id")Long id, Model model) {
+
+        return "redirect:/";
+    }
+
     @GetMapping("/showNewProductForm")
     public String showNewProductForm(Model model) {
         Product product = new Product();
